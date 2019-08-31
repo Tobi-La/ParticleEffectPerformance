@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://DustEffect.tscn" type="PackedScene" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="PlaneMesh" id=2]
+material = SubResource( 1 )
+size = Vector2( 16, 16 )
+
+[node name="ParticleEffectPerformance" type="Spatial"]
+
+[node name="DustEffect" parent="." instance=ExtResource( 1 )]
+amount = 200
+emission_box_extents = Vector3( 7, 7, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 8, 14 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.705487, 0.708723, 0, -0.323059, 0.321584, 0.890065, 0.63081, -0.627929, 0.455833, 0, 13.8687, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = null
